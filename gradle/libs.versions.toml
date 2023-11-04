@@ -1,0 +1,97 @@
+[versions]
+accompanist-permissions = "0.33.2-alpha"
+agp = "8.2.0-alpha15"
+composesensors = "1.1.1"
+datastore-preferences = "1.0.0"
+gson = "2.10.1"
+kotlin = "1.8.10"
+core-ktx = "1.12.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+kotlinx-coroutines-android = "1.7.2"
+ktor-serialization-kotlinx-json = "2.3.4"
+library-sync = "1.11.0"
+lifecycle-runtime-ktx = "2.6.2"
+activity-compose = "1.7.2"
+compose-bom = "2023.03.00"
+logging-interceptor = "4.11.0"
+maps-compose = "2.15.0"
+navigation-compose = "2.7.4"
+okhttp = "5.0.0-alpha.11"
+play-services-location = "21.0.1"
+hilt-android = "2.48"
+hilt-navigation-compose = "1.0.0"
+ksp-dep = "1.8.10-1.0.9"
+hilt-android-compiler = "2.48"
+play-services-maps = "18.1.0"
+retrofit = "2.9.0"
+rxandroid = "2.1.1"
+rxjava = "2.2.21"
+rxkotlin = "2.4.0"
+scarlet = "0.1.12"
+scarlet-protocol-websocket-okhttp = "0.1.12"
+scarlet-websocket-okhttp = "0.1.12"
+socket-io = "0.4.0"
+work-runtime-ktx = "2.8.1"
+
+[libraries]
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist-permissions" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore-preferences" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-runtime-ktx" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work-runtime-ktx" }
+composesensors = { module = "com.mutualmobile:composesensors", version.ref = "composesensors" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor-serialization-kotlinx-json" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-serialization-kotlinx-json" }
+ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor-serialization-kotlinx-json" }
+ktor-serialization-gson = { module = "io.ktor:ktor-serialization-gson", version.ref = "ktor-serialization-kotlinx-json" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor-serialization-kotlinx-json" }
+library-base = { module = "io.realm.kotlin:library-base", version.ref = "library-sync" }
+library-sync = { module = "io.realm.kotlin:library-sync", version.ref = "library-sync" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "logging-interceptor" }
+maps-compose = { module = "com.google.maps.android:maps-compose", version.ref = "maps-compose" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+play-services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "play-services-maps" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxandroid" }
+rxjava = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava" }
+rxkotlin = { module = "io.reactivex.rxjava2:rxkotlin", version.ref = "rxkotlin" }
+scarlet = { module = "com.tinder.scarlet:scarlet", version.ref = "scarlet" }
+scarlet-protocol-websocket-okhttp = { module = "com.tinder.scarlet:scarlet-protocol-websocket-okhttp", version.ref = "scarlet-protocol-websocket-okhttp" }
+scarlet-websocket-okhttp = { module = "com.tinder.scarlet:scarlet-websocket-okhttp", version.ref = "scarlet-websocket-okhttp" }
+socket-io = { module = "dev.icerock.moko:socket-io", version.ref = "socket-io" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+material3 = { group = "androidx.compose.material3", name = "material3" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "play-services-location" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android-compiler" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-android-compiler" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }
+
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+realm={id='io.realm.kotlin',version='1.11.0'}
+playServices = { id = "com.google.gms.google-services", version = "4.4.0" }
+hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android" }
+kspDep = { id = "com.google.devtools.ksp", version.ref = "ksp-dep" }
+kapt = { id = "org.jetbrains.kotlin.kapt", version = "1.8.10" }
+serializationKotlin = { id = "org.jetbrains.kotlin.plugin.serialization", version = "1.8.10" }
+mapPlatformSecret = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version = "2.0.1" }
