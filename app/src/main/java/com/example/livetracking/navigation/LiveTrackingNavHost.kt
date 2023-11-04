@@ -65,7 +65,7 @@ fun LiveTrackingNavHost(
             }
 
             composable(LiveTrackingScreens.LOGIN.name) {
-                LoginScreen()
+                LoginScreen(navHostController)
             }
         })
 }

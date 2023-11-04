@@ -3,6 +3,7 @@ package com.example.livetracking.viewmodel
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.livetracking.repository.LoginRepository
@@ -25,6 +26,12 @@ class LoginViewModel @Inject constructor(private val loginRepository: LoginRepos
     private val _password = MutableStateFlow("");
     val password = _password.asStateFlow()
 
+
+    private val _driverId=MutableStateFlow("")
+    val driverId=_driverId.asStateFlow()
+
+    private val _isLoggedIn=MutableStateFlow(false)
+    val isLoggedIn=_isLoggedIn.asStateFlow()
     fun onUserNameChange(userName:String) {
         _userName.update { userName }
     }
@@ -38,8 +45,10 @@ class LoginViewModel @Inject constructor(private val loginRepository: LoginRepos
             val response=loginRepository.login(userName.value,password.value)
 
             if(response.isSuccessful){
-                val driverId=response.body()?.data?.id
-                appContext.writeString("driver_id",driverId.toString())
+                appContext.writeString("driver_id",response.body()?.data?.id.toString())
+                _driverId.update {
+                    response.body()?.data?.id.toString()
+                }
             }
         }
     }

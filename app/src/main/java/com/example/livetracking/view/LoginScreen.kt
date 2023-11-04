@@ -1,5 +1,6 @@
 package com.example.livetracking.view
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,6 +18,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -25,15 +27,26 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.livetracking.R
+import com.example.livetracking.navigation.LiveTrackingScreens
 import com.example.livetracking.viewmodel.LoginViewModel
+import kotlinx.coroutines.runBlocking
+import kotlin.math.log
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(viewModel: LoginViewModel= hiltViewModel()) {
+fun LoginScreen(navController: NavController,viewModel: LoginViewModel= hiltViewModel()) {
 
     val username by viewModel.userName.collectAsState()
     val password by viewModel.password.collectAsState()
+    val driverId by viewModel.driverId.collectAsState()
+
+    LaunchedEffect(key1 = driverId, block = {
+
+        if(driverId.isNotEmpty())
+            navController.navigate(LiveTrackingScreens.TRIP_LIST.name)
+    })
     Scaffold {
         Column(
             modifier = Modifier
@@ -64,7 +77,9 @@ fun LoginScreen(viewModel: LoginViewModel= hiltViewModel()) {
             }, visualTransformation = PasswordVisualTransformation())
             Spacer(modifier = Modifier.height(15.dp))
 
-            OutlinedButton(onClick = { viewModel.login()}) {
+            OutlinedButton(onClick = {
+                viewModel.login()
+            }) {
                 Text(text = "Login")
             }
         }
