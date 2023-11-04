@@ -71,4 +71,8 @@ class LiveTrackingDetailViewModel @Inject constructor(
             repository.disconnectSocket()
         }
     }
+
+    fun showNoti(){
+        repository.showNotification()
+    }
 }

@@ -10,4 +10,5 @@ interface LiveTrackingRepository {
 
 //    suspend fun getLocation(): Location?
     suspend fun subscribeToTrip(tripId: String, from: String)
+    fun showNotification()
 }

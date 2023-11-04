@@ -24,4 +24,7 @@ class LiveTrackingViewModel @Inject constructor(private val repository: LiveTrac
     }
 
 
+    fun showNoti(){
+        repository.showNotification()
+    }
 }

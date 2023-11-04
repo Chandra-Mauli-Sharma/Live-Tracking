@@ -1,7 +1,13 @@
 package com.example.livetracking.service
 
+import android.Manifest
 import android.app.Application
+import android.app.NotificationManager
+import android.content.pm.PackageManager
 import android.util.Log
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.livetracking.entity.RideDetail
 import com.example.livetracking.entity.Trip
 import com.example.livetracking.model.RideDetails
@@ -21,13 +27,16 @@ class LiveTrackingService @Inject constructor(
     val context: Application,
     private val socket: Socket,
     private val json: Json,
-    private val realm:Realm
+    private val realm:Realm,
+    private val builder: NotificationCompat.Builder
 //    private val locationProvider:FusedLocationProviderClient
 ) : LiveTrackingRepository {
     override suspend fun trackRideDetails(userRideDetails: RideDetails) {
         try {
             Log.d("Hey", "driverLocation: ${json.encodeToString(userRideDetails)}")
 
+            if(userRideDetails.speed>23)
+                showNotification()
 
             socket.emit("driverLocation", json.encodeToString(userRideDetails))
             socket.on("driverLocation") {
@@ -75,6 +84,26 @@ class LiveTrackingService @Inject constructor(
     override suspend fun connectSocket() {
         Log.d("Socket Status", "Connected")
         socket.connect()
+    }
+
+    override fun showNotification(){
+        with(NotificationManagerCompat.from(context)){
+            if (ActivityCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return
+            }
+            notify(100,builder.build())
+        }
     }
 
     override suspend fun disconnectSocket() {

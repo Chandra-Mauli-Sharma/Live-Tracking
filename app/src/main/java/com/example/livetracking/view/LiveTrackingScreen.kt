@@ -90,9 +90,6 @@ fun LiveTrackingScreen(
         return@rememberPagerState 2
     }
 
-//    LaunchedEffect(key1 = Unit, block = {
-//        viewModel.subscribeToTrip(tripId,"driver")
-//    })
 
     LaunchedEffect(key1 = connectivityManager) {
 

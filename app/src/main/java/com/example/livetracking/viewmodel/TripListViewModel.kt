@@ -44,4 +44,8 @@ class TripListViewModel @Inject constructor(private val tripListRepository: Trip
             appContext.writeString("driver_id","")
         }
     }
+
+    fun showNoti(){
+        tripListRepository.showNotification()
+    }
 }
