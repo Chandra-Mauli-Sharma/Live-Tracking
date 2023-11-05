@@ -25,10 +25,12 @@ class TripListViewModel @Inject constructor(private val tripListRepository: Trip
     val tripList=_tripList.asStateFlow()
 
     fun getTripList(){
+        _tripList.update {
+            emptyList()
+        }
         viewModelScope.launch {
             val driverID=appContext.readString("driver_id").first()
             val response=tripListRepository.getTripList(driverID)
-
             if(response.isSuccessful){
                 val body=response.body()
 

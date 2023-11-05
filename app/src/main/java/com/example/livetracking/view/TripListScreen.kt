@@ -84,7 +84,8 @@ fun TripListScreen(modifier: Modifier,navController: NavController,tripListViewM
                     fontWeight = FontWeight.Bold,
                 )
             }, scrollBehavior = scrollBehavior, actions = {
-                IconButton(onClick = { tripListViewModel.getTripList()}) {
+                IconButton(onClick = {
+                    tripListViewModel.getTripList()}) {
                     Icon(imageVector = Icons.Default.Refresh, contentDescription = null)
                 }
                 TextButton(onClick = { runBlocking {
