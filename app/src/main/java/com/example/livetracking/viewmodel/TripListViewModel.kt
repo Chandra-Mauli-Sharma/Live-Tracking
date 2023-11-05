@@ -38,6 +38,8 @@ class TripListViewModel @Inject constructor(private val tripListRepository: Trip
                     body?.data
                 }
             }
+
+            Log.d("Heyd", "getTripList: ${response.message()}")
         }
     }
 

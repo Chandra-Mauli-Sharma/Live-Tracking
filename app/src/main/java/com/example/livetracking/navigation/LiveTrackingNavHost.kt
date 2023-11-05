@@ -22,6 +22,7 @@ import com.example.livetracking.util.readString
 import com.example.livetracking.view.LiveTrackingScreen
 import com.example.livetracking.view.LiveTripList
 import com.example.livetracking.view.LoginScreen
+import com.example.livetracking.view.PlaceholderScreen
 import com.example.livetracking.view.TripListScreen
 import com.google.android.gms.location.FusedLocationProviderClient
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -38,7 +39,7 @@ fun LiveTrackingNavHost(
     context: Context
 ) {
 
-    var startDestination by remember { mutableStateOf(LiveTrackingScreens.LOGIN.name) }
+    var startDestination by remember { mutableStateOf(LiveTrackingScreens.PLACEHOLDER.name) }
     LaunchedEffect(key1 = startDestination, block = {
         Log.d("heyd", "LiveTrackingNavHost: ${context.readString("driver_id").first()}")
         startDestination = if (context.readString("driver_id").first()
@@ -66,6 +67,10 @@ fun LiveTrackingNavHost(
 
             composable(LiveTrackingScreens.LOGIN.name) {
                 LoginScreen(navHostController)
+            }
+
+            composable(LiveTrackingScreens.PLACEHOLDER.name){
+                PlaceholderScreen()
             }
         })
 }
