@@ -22,9 +22,9 @@ List the key features of your project.
 
 # Screenshots
 
-![screenshots/WhatsApp Image 2023-11-05 at 08.59.42_85409e73.jpg]()
-![screenshots/WhatsApp Image 2023-11-05 at 08.59.42_e86106d1.jpg]()
-![screenshots/WhatsApp Image 2023-11-05 at 08.59.43_7f86e8fc.jpg]()
-![screenshots/WhatsApp Image 2023-11-05 at 08.59.43_2931068b.jpg]()
+![](screenshots/WhatsApp Image 2023-11-05 at 08.59.42_85409e73.jpg)
+![](screenshots/WhatsApp Image 2023-11-05 at 08.59.42_e86106d1.jpg)
+![](screenshots/WhatsApp Image 2023-11-05 at 08.59.43_7f86e8fc.jpg)
+![](screenshots/WhatsApp Image 2023-11-05 at 08.59.43_2931068b.jpg)
 
 
