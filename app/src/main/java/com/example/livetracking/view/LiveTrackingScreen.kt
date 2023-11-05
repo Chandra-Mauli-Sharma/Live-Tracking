@@ -90,11 +90,6 @@ fun LiveTrackingScreen(
         return@rememberPagerState 2
     }
 
-    LaunchedEffect(key1 = Unit, block = {
-
-        viewModel.showNoti()
-    })
-
     LaunchedEffect(key1 = connectivityManager) {
 
         val networkCallback = object : ConnectivityManager.NetworkCallback() {
