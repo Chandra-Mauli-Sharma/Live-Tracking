@@ -14,6 +14,7 @@ List the key features of your project.
 
 - Vehicle Live Tracking
 - Network Loss Handling
+- Over Speed Alert
 
 ## Tech Stack
 
