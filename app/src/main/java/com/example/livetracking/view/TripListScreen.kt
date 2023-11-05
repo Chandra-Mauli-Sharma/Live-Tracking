@@ -18,14 +18,17 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
@@ -47,6 +50,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.livetracking.model.Trip
 import com.example.livetracking.navigation.LiveTrackingScreens
@@ -76,10 +80,13 @@ fun TripListScreen(modifier: Modifier,navController: NavController,tripListViewM
             title = {
                 Text(
                     text = "Company Name",
-                    style = MaterialTheme.typography.displayMedium,
+                    style = MaterialTheme.typography.displaySmall,
                     fontWeight = FontWeight.Bold,
                 )
             }, scrollBehavior = scrollBehavior, actions = {
+                IconButton(onClick = { tripListViewModel.getTripList()}) {
+                    Icon(imageVector = Icons.Default.Refresh, contentDescription = null)
+                }
                 TextButton(onClick = { runBlocking {
                     tripListViewModel.logout()
                 }
@@ -119,7 +126,7 @@ fun TripListScreen(modifier: Modifier,navController: NavController,tripListViewM
                         pagerState.scrollToPage(1)
                     }
                 }) {
-                    Text(text = "Post", modifier = Modifier.padding(10.dp))
+                    Text(text = "Past", modifier = Modifier.padding(10.dp))
                 }
             }
             HorizontalPager(state = pagerState) {
@@ -140,6 +147,11 @@ fun TripListScreen(modifier: Modifier,navController: NavController,tripListViewM
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun LiveTripList(modifier: Modifier, tripList: List<Trip>,navController: NavController) {
+    AnimatedVisibility(visible = tripList.isEmpty()) {
+        Column(modifier.fillMaxWidth().padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            CircularProgressIndicator()
+        }
+    }
     LazyColumn {
         items(tripList) {
             var isOpened by remember {
@@ -186,6 +198,7 @@ fun LiveTripList(modifier: Modifier, tripList: List<Trip>,navController: NavCont
             }
         }
     }
+
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
