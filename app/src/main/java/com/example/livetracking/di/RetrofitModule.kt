@@ -2,6 +2,7 @@ package com.example.livetracking.di
 
 import com.example.livetracking.retrofit.LoginInterface
 import com.example.livetracking.retrofit.TripListInterface
+import com.example.livetracking.util.Constants
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -32,7 +33,7 @@ object RetrofitModule {
     @Provides
     fun provideRetrofit(client: OkHttpClient?, gson: Gson?): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://4bda-2401-4900-820b-721f-29fc-7536-9d38-d4d3.ngrok-free.app/")
+            .baseUrl(Constants.baseURL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client!!)
             .build()

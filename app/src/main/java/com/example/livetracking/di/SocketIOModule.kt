@@ -1,5 +1,6 @@
 package com.example.livetracking.di
 
+import com.example.livetracking.util.Constants
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -17,5 +18,5 @@ object SocketIOModule {
     @Singleton
     @Provides
     fun provideSocket(): Socket =
-        IO.socket("https://4bda-2401-4900-820b-721f-29fc-7536-9d38-d4d3.ngrok-free.app/")
+        IO.socket(Constants.baseURL)
 }
